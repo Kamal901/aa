@@ -32,10 +32,12 @@ echo "\r\n";
 echo '####################################';
 echo "\r\n";
 echo "\r\n";
-echo 'Masukkan Kode Referral : 1900761504'; 
-$referral = trim(fgets(STDIN)); 
-echo 'Masukkan Jumlah : 5'; 
-$jumlah = trim(fgets(STDIN)); 
+//echo 'Masukkan Kode Referral : '; 
+//$referral = trim(fgets(STDIN)); 
+echo $referral = 1900761504; 
+//echo 'Masukkan Jumlah : '; 
+//$jumlah = trim(fgets(STDIN));
+echo $jumlah = 5;
 $i=1;
 while($i <= $jumlah){
 $ch = curl_init();
