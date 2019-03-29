@@ -83,9 +83,6 @@ echo 'Gunakan Kode Negara Di Awal!';
 echo "\r\n";
 echo 'Masukkan Nomor (62/1/4) : ';  
 $phone_number = trim(fgets(STDIN));
-
-$kode_negara = $phone_number[0];
-$phone_number = $phone_number[1];
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'http://api.yodorun.com/sport/login/phone/upload');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
