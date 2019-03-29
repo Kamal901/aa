@@ -39,8 +39,8 @@ echo "\r\n";
 echo '####################################';
 echo "\r\n";
 echo "\r\n";
-echo 'Reff Kamu :' $referral = 1900761504; 
-echo 'Jumlah Reff :' $jumlah = 5; 
+echo 'Reff Kamu :'; echo $referral = 1900761504; 
+echo 'Jumlah Reff :'; echo $jumlah = 5; 
 $i=1;
 while($i <= $jumlah){
 $ch = curl_init();
