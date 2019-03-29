@@ -32,9 +32,9 @@ echo "\r\n";
 echo '####################################';
 echo "\r\n";
 echo "\r\n";
-echo 'Masukkan Kode Referral : '; 
+echo 'Masukkan Kode Referral : 1900761504'; 
 $referral = trim(fgets(STDIN)); 
-echo 'Masukkan Jumlah : '; 
+echo 'Masukkan Jumlah : 5'; 
 $jumlah = trim(fgets(STDIN)); 
 $i=1;
 while($i <= $jumlah){
