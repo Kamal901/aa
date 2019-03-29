@@ -29,7 +29,7 @@ error_reporting(0);
             $nomor = substr($nomor,2,15);
         }else if($cek == "4"){
             $kode_negara = "4";
-            $nomor = substr($nomor,3,15);
+            $nomor = substr($nomor,4,15);
         }
         return array($kode_negara, $nomor);
     }
