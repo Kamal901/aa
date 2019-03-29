@@ -83,7 +83,7 @@ echo 'Gunakan Kode Negara Di Awal!';
 echo "\r\n";
 echo 'Masukkan Nomor (62/1/4) : ';  
 $phone_number = trim(fgets(STDIN));
-$phone_number = correct($phone_number);
+
 $kode_negara = $phone_number[0];
 $phone_number = $phone_number[1];
 $ch = curl_init();
