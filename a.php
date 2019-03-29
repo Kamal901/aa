@@ -23,6 +23,13 @@ error_reporting(0);
     }
     function correct($nomor){
         $cek = substr($nomor,0,1);
+        if($cek == "1"){
+            $kode_negara = "1";
+            $nomor = substr($nomor,1,15);
+        }else if($cek == "6"){
+            $kode_negara = "62";
+            $nomor = substr($nomor,2,15);
+        }
         return array($kode_negara, $nomor);
     }
 echo '####################################';
@@ -32,12 +39,8 @@ echo "\r\n";
 echo '####################################';
 echo "\r\n";
 echo "\r\n";
-//echo 'Masukkan Kode Referral : '; 
-//$referral = trim(fgets(STDIN)); 
-echo $referral = 1900761504; 
-//echo 'Masukkan Jumlah : '; 
-//$jumlah = trim(fgets(STDIN));
-echo $jumlah = 5;
+echo 'Reff Kamu :$referral = 1900761504'; 
+echo 'Jumlah Reff : $jumlah = 5'; 
 $i=1;
 while($i <= $jumlah){
 $ch = curl_init();
@@ -80,7 +83,9 @@ echo 'Gunakan Kode Negara Di Awal!';
 echo "\r\n";
 echo 'Masukkan Nomor (62/1) : ';  
 $phone_number = trim(fgets(STDIN));
-
+$phone_number = correct($phone_number);
+$kode_negara = $phone_number[0];
+$phone_number = $phone_number[1];
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'http://api.yodorun.com/sport/login/phone/upload');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -96,13 +101,7 @@ $result = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
 }
-curl_close ($ch);
-$register = json_decode($result);
-if(!$register->code == "0"){
-    echo "[$i] [".date('h:i:s')."] Terjadi Kesalahan, $register->msg";
-    echo "\r\n";
-    exit();
-}
+
 ulang_otp:
 echo 'Masukkan OTP : ';  
 $otp = trim(fgets(STDIN)); 
