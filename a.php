@@ -1,4 +1,6 @@
 <?php
+// Ilyasa Fathur Rahman
+// SGB-Team Reborn
 set_time_limit(0);
 error_reporting(0);
     function generateRandomString($length = 10) {
@@ -21,13 +23,6 @@ error_reporting(0);
     }
     function correct($nomor){
         $cek = substr($nomor,0,1);
-        if($cek == "1"){
-            $kode_negara = "1";
-            $nomor = substr($nomor,1,15);
-        }else if($cek == "4"){
-            $kode_negara = "44";
-            $nomor = substr($nomor,2,15);
-        }
         return array($kode_negara, $nomor);
     }
 echo '####################################';
@@ -81,8 +76,12 @@ $type = generateRandomNumber(5);
 $android_id = generateRandomNumber(15);
 echo 'Gunakan Kode Negara Di Awal!';
 echo "\r\n";
-echo 'Masukkan Nomor (62/1/4) : ';  
+echo 'Masukkan Nomor (62/1) : ';  
 $phone_number = trim(fgets(STDIN));
+$phone_number = correct($phone_number);
+$kode_negara = $phone_number[0];
+$phone_number = $phone_number[1];
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'http://api.yodorun.com/sport/login/phone/upload');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
